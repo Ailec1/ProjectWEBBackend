@@ -44,7 +44,7 @@ app.use(function(err, req, res, next) {
 
 // Database sync
 
-const User = require("./models/user.model")(Sequelize.connection, Sequelize.library);
+const User = require("./models/score.model")(Sequelize.connection, Sequelize.library);
 User.sync({ force: false, alter: true });
 
 const Session = require("./models/session.model")(Sequelize.connection, Sequelize.library);
@@ -53,6 +53,6 @@ Session.sync({ force: false, alter: true });
 
 User.create({ username: 'Art', email: 'Art@test.com', password: 'Art12345'});
 User.create({ username: 'Ailec', email: 'ailec@test.com', password: 'Game123'});
-User.create({ username: 'Vanope', email: 'vanope@test.com', password: '123456'});
+User.create({ username: 'Vanope', email: 'vanope@test.com', password: 'Poke456'});
 
 module.exports = app;

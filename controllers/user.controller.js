@@ -1,7 +1,7 @@
 /* BEGIN db initialization */
 const { Op } = require("sequelize");
 const Sequelize = require("../db.connection");
-const User = require("../models/user.model")(Sequelize.connection, Sequelize.library);
+const User = require("../models/score.model")(Sequelize.connection, Sequelize.library);
 /* END db initialization */
 
 // Create

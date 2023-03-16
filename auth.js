@@ -2,7 +2,7 @@ const users = require("./controllers/user.controller.js");
 const sessions = require("./controllers/session.controller");
 
 exports.login = async (req, res) => {
-    let user = await users.findByEmail(req, res)
+    let user = await users.username(req, res)
     // if the user exists and password matches
     console.log(user.id,user.password,req.password)
     if (user && user.id && user.password == req.body.password) {

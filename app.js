@@ -44,7 +44,7 @@ app.use(function(err, req, res, next) {
 
 // Database sync
 
-const User = require("./models/score.model")(Sequelize.connection, Sequelize.library);
+const User = require("./models/user.model")(Sequelize.connection, Sequelize.library);
 User.sync({ force: false, alter: true });
 
 const Session = require("./models/session.model")(Sequelize.connection, Sequelize.library);

@@ -21,8 +21,8 @@ module.exports = {
 }
 
 // create association: 1 user to many stat records
-
+/*
 User.hasMany(Stats, {
     foreignKey: 'UserId'
   });
-  Stats.belongsTo(User);
+  Stats.belongsTo(User);*/

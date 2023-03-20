@@ -3,11 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const Sequelize = require("./db.connection");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -23,7 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,27 +37,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
-// Database sync
-
-const User = require("./models/user.model")(Sequelize.connection, Sequelize.library);
-User.sync({ force: false, alter: true });
-
-const Session = require("./models/session.model")(Sequelize.connection, Sequelize.library);
-Session.belongsTo(User);
-Session.sync({ force: false, alter: true });
-
-<<<<<<< HEAD
-User.create({ username: 'Art', email: 'Art@test.com', password: 'Art12345'});
-User.create({ username: 'Ailec', email: 'ailec@test.com', password: 'Game123'});
-User.create({ username: 'Vanope', email: 'vanope@test.com', password: 'Poke456'});
-=======
-User.create({ fullname: 'Martin Fowler', email: 'martin@test.com', password: '12345'});
-User.create({ fullname: 'Alan Turing', email: 'alan@test.com', password: '67890'});
-User.create({ fullname: 'Ada Lovelace', email: 'ada@test.com', password: '23465'});
-User.create({ fullname: 'Tim Berners Lee', email: 'tim@test.com', password: '12387'});
-
->>>>>>> parent of 1d58a2e (login)
 
 module.exports = app;

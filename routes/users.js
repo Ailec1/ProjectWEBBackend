@@ -1,26 +1,24 @@
 var express = require('express');
 var router = express.Router();
-const users = require("../controllers/user.controller.js");
-const auth = require("../auth.js");
 
-// Login middleware
-router.use(async (req, res, next) => {
-    let isLoggedIn = await auth.isLoggedIn(req, res)
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
 
-    // if logged in, proceed to route
-    // else, say the access is denied
-    if (isLoggedIn) {
-        next()
-    } else {
-        res.status(403).send("Access denied")
-    }
-})
+var users = ["Ailec","Alice","Louis"]
 
-// Create a new User
-router.post("/", users.create);
+router.get('/getUser', function(req, res, next) {
+  res.send(users);// return list of users
+});
 
-// Retrieve all Users
-router.get("/", users.findAll);
-
+router.get('/getUser/:id', function(req, res, next) {
+  var arraylength = users.length;
+  if(req.params.id <= arraylength - 1){
+    res.send(users[req.params.id]);
+  }
+  
+  res.sendstatus(404).send("User not found");
+});
 
 module.exports = router;

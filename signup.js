@@ -1,3 +1,6 @@
+    
+    
+    
     // Create connection  
     $conn = new mysqli($servername, $username, $password, $dbname);  
     // Check connection  
@@ -9,7 +12,7 @@
 
 
     $sql = INSERT INTO 'User' (username,email,password)  
-    VALUES('$fname', '$uname', '$lname', '$adress', '$cno');  
+    VALUES('$fname', '$uname', '$lname',);  
 
     if ($conn - > query($sql) === TRUE) {  
         echo“ record created successfully”  

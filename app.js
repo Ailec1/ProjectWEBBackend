@@ -51,8 +51,10 @@ const Session = require("./models/session.model")(Sequelize.connection, Sequeliz
 Session.belongsTo(User);
 Session.sync({ force: false, alter: true });
 
-User.create({ username: 'Art', email: 'Art@test.com', password: 'Art12345'});
-User.create({ username: 'Ailec', email: 'ailec@test.com', password: 'Game123'});
-User.create({ username: 'Vanope', email: 'vanope@test.com', password: 'Poke456'});
+User.create({ fullname: 'Martin Fowler', email: 'martin@test.com', password: '12345'});
+User.create({ fullname: 'Alan Turing', email: 'alan@test.com', password: '67890'});
+User.create({ fullname: 'Ada Lovelace', email: 'ada@test.com', password: '23465'});
+User.create({ fullname: 'Tim Berners Lee', email: 'tim@test.com', password: '12387'});
+
 
 module.exports = app;

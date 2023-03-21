@@ -19,10 +19,3 @@ module.exports = {
     library: Sequelize,
     connection: connection
 }
-
-// create association: 1 user to many stat records
-
-User.hasMany(Stats, {
-    foreignKey: 'UserId'
-  });
-  Stats.belongsTo(User);

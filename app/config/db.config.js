@@ -1,4 +1,3 @@
-// TODO : change me !!
 module.exports = {
   HOST: "box.toxicsed.fr",
   PORT: 49158,

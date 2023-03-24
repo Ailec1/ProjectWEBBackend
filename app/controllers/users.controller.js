@@ -37,7 +37,7 @@ exports.create = async (req, res) => {
     return;
   }
 
-  if (await User.findOne({ where: { email: req.body.email } })) {
+  if (await User.findOne({ where: { username: req.body.username } })) {
     res.status(403).send({
       message: "User already exists !",
     });
@@ -67,7 +67,7 @@ exports.create = async (req, res) => {
 };
 
 exports.findOne = async (req, res, next) => {
-  const user = await User.findOne({ where: { email: req.body.email } });
+  const user = await User.findOne({ where: { username: req.body.username} });
 
   if (!user) {
     return res.status(400).send({
